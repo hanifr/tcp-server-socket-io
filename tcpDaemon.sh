@@ -30,7 +30,7 @@ Description=TCP-Server
 After=syslog.target network.target
 [Service]
 WorkingDirectory=/home/$USER/tcp-server-socket-io/
-ExecStart=/home/$USER/tcp-server-socket-io/tcpdaemon.sh
+ExecStart=/home/$USER/tcp-server-socket-io/tcpstart.sh
 Restart=on-failure
 KillSignal=SIGINT
 # log output to syslog as 'tcp-server'
