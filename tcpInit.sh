@@ -38,8 +38,10 @@ sudo cat >/tmp/echo-server.py <<EOL
 import context  # Ensures paho is in PYTHONPATH
 import socket
 import sys
+import string
+import random
 
-import paho.mqtt.publish as publish
+# import paho.mqtt.publish as publish
 
 HOST = "$_host"  # The server's hostname or IP address
 PORT = $_port  # The port used by the server
@@ -49,7 +51,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Bind the socket to the port
 
 server_address = (HOST, PORT)
-print >> sys.stderr, 'starting up on %s port %s' % server_address
+print("Start TCP Listening from", HOST)
 s.bind(server_address)
 
 # Listen for incoming connections
@@ -60,23 +62,22 @@ while True:
 
     # Wait for a connection
 
-    print >> sys.stderr, 'waiting for a connection'
+    print("waiting for a connection")
     (connection, client_address) = s.accept()
     try:
-        print >> sys.stderr, 'connection from', client_address
+        print("connection from", client_address)
 
         # Receive the data in small chunks and retransmit it
 
         while True:
             data = connection.recv(4096)
-            print >> sys.stderr, 'received "%s"' % data
-            publish.single("$_topic", data, hostname="$_domain"
-                           )
+            print('received "%s"' % data, file=sys.stderr)
+            publish.single("$_topic", data, hostname="$_domain")
             if data:
-                print >> sys.stderr, 'sending data back to the client'
-                connection.sendall('\x01')
+                print("sending data back to the client", file=sys.stderr)
+                connection.sendall(b'\x01')
             else:
-                print >> sys.stderr, 'no more data from', client_address
+                print("no more data from", client_address, file=sys.stderr)
                 break
     finally:
 

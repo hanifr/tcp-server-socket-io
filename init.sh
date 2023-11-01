@@ -23,11 +23,10 @@ sudo apt-get install -y python-setuptools
 
 echo "${_MAGENTA}Installation Progress....installation of MQTT PAHO: Started${_RESET}"
 echo
-sudo apt install python2.7
-sudo python2.7 get-pip.py
+
 git clone https://github.com/eclipse/paho.mqtt.python.git
 cd ./paho.mqtt.python
-sudo python2.7 setup.py install
+sudo python3 setup.py install
 sleep 5
 echo "${_MAGENTA}Installation Progress....installation of MQTT PAHO: Completed${_RESET}"
 echo

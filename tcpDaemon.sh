@@ -14,7 +14,7 @@ echo
 sudo cat >/tmp/tcpstart.sh <<EOL
 #!/bin/bash
 
-sudo python /home/$USER/tcp-server-socket-io/paho.mqtt.python/examples/echo-server.py
+sudo python3 /home/$USER/tcp-server-socket-io/paho.mqtt.python/examples/echo-server.py
 
 EOL
 
