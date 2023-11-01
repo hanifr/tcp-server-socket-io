@@ -9,7 +9,6 @@ _CYAN=`tput setaf 6`
 _RESET=`tput sgr0`
 # printing greetings
 
-. lora.sh
 echo "${_MAGENTA}Setup Progress....Creating TCP startup service:: started${_RESET}"
 echo
 sudo cat >/tmp/tcpstart.sh <<EOL
