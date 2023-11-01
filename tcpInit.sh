@@ -41,7 +41,7 @@ import sys
 import string
 import random
 
-# import paho.mqtt.publish as publish
+import paho.mqtt.publish as publish
 
 HOST = "$_host"  # The server's hostname or IP address
 PORT = $_port  # The port used by the server
