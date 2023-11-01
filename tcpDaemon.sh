@@ -45,7 +45,7 @@ StandardError = journal
 WantedBy=multi-user.target
 EOL
 sudo mv /tmp/tcpserver.service /etc/systemd/system/tcpserver.service
-echo "${_YELLOW}[*] Starting loradragino systemd service${_RESET}"
+echo "${_YELLOW}[*] Starting TCP startup systemd service${_RESET}"
 sudo chmod 664 /etc/systemd/system/tcpserver.service
 sudo systemctl daemon-reload
 sudo systemctl enable tcpserver.service
